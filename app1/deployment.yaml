@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-app-1
+  labels:
+    app: openshift-gitops-example-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: openshift-gitops-example-app
+  template:
+    metadata:
+      labels:
+        app: openshift-gitops-example-app
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        volumeMounts:
+        - name: html-volume
+          mountPath: /usr/share/nginx/html
+        ports:
+        - containerPort: 8080
+      volumes:
+      - name: html-volume
+        configMap:
+          name: html
