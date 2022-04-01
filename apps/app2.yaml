@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: Example Application 2
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+  source:
+    path: app2
+    repoURL: git@github.com:utpk/openshift-gitops-example-app.git
+    targetRevision: main
+    directory:
+      recurse: true
+      jsonnet: {}
+  syncPolicy:
+    automated: {}
