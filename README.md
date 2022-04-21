@@ -11,8 +11,9 @@ spec:
   destination:
     server: https://kubernetes.default.svc
   source:
+    path: manage-access-example
     repoURL: https://github.com/utpk/openshift-gitops-example-repo.git
-    targetRevision: manage-access-example
+    targetRevision: main
     directory:
       recurse: true
   project: default
