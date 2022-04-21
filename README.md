@@ -9,6 +9,7 @@ metadata:
   name: manage-access-example
 spec:
   destination:
+    namespace: mynamespace
     server: https://kubernetes.default.svc
   source:
     path: manage-access-example
